@@ -9,14 +9,14 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import de.Satrium.CandyLand.block.BlockCL;
 import de.Satrium.CandyLand.block.BlockDarkGrass;
 import de.Satrium.CandyLand.block.TestBlock;
+import de.Satrium.CandyLand.init.ModBlocks;
+import de.Satrium.CandyLand.init.ModItems;
 import de.Satrium.CandyLand.proxy.IProxy;
 import de.Satrium.CandyLand.reference.Reference;
 
-@Mod(modid=Reference.MOD_ID, name="Candy Land", version="0.1-Aplha", acceptedMinecraftVersions="1.7.10")
+@Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.MOD_VERSION, acceptedMinecraftVersions=Reference.MC_VERSION)
 public class CandyLand {
 
-	public static final BlockCL testBlock = new TestBlock();
-	public static final BlockCL darkGrass = new BlockDarkGrass();
 	
 	@Mod.Instance(Reference.MOD_ID)
 	public static CandyLand instance;
@@ -26,8 +26,8 @@ public class CandyLand {
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event){
-		GameRegistry.registerBlock(testBlock, "testBlock");
-		GameRegistry.registerBlock(darkGrass, "darkGrass");
+		ModBlocks.registerBlocks();
+		ModItems.registerItems();
 	}
 	
 	@Mod.EventHandler
