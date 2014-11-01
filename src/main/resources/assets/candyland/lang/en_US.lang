@@ -1,0 +1,5 @@
+#CreativeTab
+itemGroup.candyland=Candy Land
+
+#Blocks
+tile.candyland:testBlock.name=Test Block
