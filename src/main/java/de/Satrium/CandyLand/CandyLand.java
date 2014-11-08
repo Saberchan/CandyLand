@@ -1,14 +1,14 @@
 package de.Satrium.CandyLand;
 
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.DimensionManager;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
-import de.Satrium.CandyLand.block.BlockCL;
-import de.Satrium.CandyLand.block.BlockDarkGrass;
-import de.Satrium.CandyLand.block.TestBlock;
+import de.Satrium.CandyLand.dimension.madLands.WorldProviderMadLands;
+import de.Satrium.CandyLand.dimension.madLands.biomes.BiomeGenMadLandPlains;
 import de.Satrium.CandyLand.init.ModBlocks;
 import de.Satrium.CandyLand.init.ModItems;
 import de.Satrium.CandyLand.proxy.IProxy;
@@ -17,6 +17,8 @@ import de.Satrium.CandyLand.reference.Reference;
 @Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.MOD_VERSION, acceptedMinecraftVersions=Reference.MC_VERSION)
 public class CandyLand {
 
+	
+	public static BiomeGenBase madLandPlains = new BiomeGenMadLandPlains(200);
 	
 	@Mod.Instance(Reference.MOD_ID)
 	public static CandyLand instance;
@@ -32,7 +34,8 @@ public class CandyLand {
 	
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event){
-
+		DimensionManager.registerProviderType(Reference.madLandsID, WorldProviderMadLands.class, false);
+		DimensionManager.registerDimension(Reference.madLandsID, Reference.madLandsID);
 	}
 	
 	@Mod.EventHandler

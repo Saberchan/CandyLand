@@ -20,4 +20,6 @@ public class Reference {
 			return Items.blaze_rod;
 		}
 	};
+	
+	public static final int madLandsID = 57;
 }
